@@ -22,9 +22,9 @@ void init_lrf(py::module& m){
         ;
 
 // =========================== LRF (General Class -- Factory Function) ===========================
-    py::class_<LRF>(m,"LRF")
-        .def_static("fromJsonString", &LRF::mkFromJsonString)
-        ;
+    //py::class_<LRF>(m,"LRF")
+    //    .def_static("fromJsonString", &LRF::mkFromJsonString)
+    //    ;
     
 // =========================== LRFxyz (3D -- No constrained symmetry) ===========================
     py::class_<LRFxyz>(m, "LRFxyz", "LRF in 3 Dimensions. No assumed Symmetry.")
@@ -65,7 +65,7 @@ void init_lrf(py::module& m){
         py::arg("xMin"), py::arg("xMax"), py::arg("nXBins"), py::arg("yMin"), py::arg("yMax"), py::arg("nYBins"))
         .def(py::init<std::string &>())
         //.def("GetJsonString", (std::string (LRFxy::*)() const) &LRFxy::GetJsonString) //I think this was a new thing I added?
-        .def("inDomain", (bool (LRFxy::*)(double x, double y, double z=0.) const) &LRFxy::inDomain)
+        .def("inDomain", (bool (LRFxy::*)(double x, double y, double z) const) &LRFxy::inDomain)
         .def("isValid", &LRFxy::isValid)
         .def("isReady", &LRFxy::isReady)
         .def("getRmax", &LRFxy::getRmax)
@@ -81,12 +81,12 @@ void init_lrf(py::module& m){
     
     // Advanced Bin/Fitting Settings
         .def("SetNonNegative", (void (LRFxy::*)(bool val)) &LRFxy::SetNonNegative)
-        .def("SetTopDown", (void (LRFxy::*)(bool val, double x, double y)))
+        .def("SetTopDown", (void (LRFxy::*)(bool val, double x, double y)) &LRFxy::SetTopDown)
 
     // LRF Evaluation
-        .def("eval", (double (LRFxy::*) (double x, double y, double z = 0.0)) &LRFxy::eval)
-        .def("evalDrvX", (double (LRFxy::*) (double x, double y, double z = 0.0)) &LRFxy::evalDrvX)
-        .def("evalDrvY", (double (LRFxy::*) (double x, double y, double z = 0.0)) &LRFxy::evalDrvY)
+        .def("eval", (double (LRFxy::*) (double x, double y, double z)) &LRFxy::eval)
+        .def("evalDrvX", (double (LRFxy::*) (double x, double y, double z)) &LRFxy::evalDrvX)
+        .def("evalDrvY", (double (LRFxy::*) (double x, double y, double z)) &LRFxy::evalDrvY)
         ;
 
 // =========================== LRFaxial (2D -- Dimension Reduced by Axial Symmetry) ===========================
