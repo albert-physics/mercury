@@ -12,10 +12,8 @@
 namespace py = pybind11;
 using namespace pybind11::literals; 
 
-//void init_LRFaxial(py::module_ &m) {
 PYBIND11_MODULE(_mercury, m) {
 
-    init_axial(m);
     auto m_formula = m.def_submodule("formula", "formula");
     init_formula1(m_formula);
     init_formulav(m_formula);
