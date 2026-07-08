@@ -35,6 +35,7 @@ public:
 //    const Bspline2d *getSpline() const;
     virtual std::string type() const { return std::string("XY"); }
     virtual void ToJsonObject(Json_object &json) const;
+    virtual std::string GetJsonString() const;
 
     void SetNonNegative(bool val) {non_negative = val;}
     void SetTopDown(bool val, double x, double y) {top_down = val; x0 = x; y0 = y;}

@@ -37,10 +37,11 @@ LRF* LRF::mkFromJson(const Json &json){
         lrf = new LRFormulaV(json);
     else if (type == "FormulaXY")
         lrf = new LRFormulaXY(json); 
+    */
     else {
         gjson_err = std::string("unknown type");
         return nullptr; // unknown type
-    } */
+    }
 
     if (lrf->isValid())
         return lrf;

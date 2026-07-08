@@ -31,7 +31,7 @@ void init_lrf(py::module& m){
         .def(py::init<double, double, int, double, double, int, double, double, int>(),
             py::arg("xMin"), py::arg("xMax"), py::arg("nXBins"), py::arg("yMin"), py::arg("yMax"), py::arg("nYBins"), py::arg("zMin"), py::arg("zMax"), py::arg("nZBins"))
         .def(py::init<std::string &>())
-        //.def("GetJsonString", (std::string (LRFxyz::*)() const) &LRFxyz::GetJsonString) //I think this was a new thing I added?
+        .def("GetJsonString", (std::string (LRFxyz::*)() const) &LRFxyz::GetJsonString)
         .def("inDomain", (bool (LRFxyz::*)(double x, double y, double z)) &LRFxyz::inDomain)
         .def("isValid", &LRFxyz::isValid)
         .def("isReady", &LRFxyz::isReady)
@@ -64,7 +64,7 @@ void init_lrf(py::module& m){
         .def(py::init<double, double, int, double, double, int>(),
         py::arg("xMin"), py::arg("xMax"), py::arg("nXBins"), py::arg("yMin"), py::arg("yMax"), py::arg("nYBins"))
         .def(py::init<std::string &>())
-        //.def("GetJsonString", (std::string (LRFxy::*)() const) &LRFxy::GetJsonString) //I think this was a new thing I added?
+        .def("GetJsonString", (std::string (LRFxy::*)() const) &LRFxy::GetJsonString)
         .def("inDomain", (bool (LRFxy::*)(double x, double y, double z) const) &LRFxy::inDomain)
         .def("isValid", &LRFxy::isValid)
         .def("isReady", &LRFxy::isReady)
@@ -132,6 +132,7 @@ void init_lrf(py::module& m){
 
     // Spline + JSON
         .def("type", &LRFaxial::type)
+        .def("GetJsonString", (std::string (LRFaxial::*)() const) &LRFaxial::GetJsonString)
 
     // Setters
         .def("SetOrigin", &LRFaxial::SetOrigin)
