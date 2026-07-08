@@ -40,6 +40,8 @@ public:
     const Bspline1d *getSpline() const;
     virtual std::string type() const { return std::string("Axial"); }
     virtual void ToJsonObject(Json_object &json) const;
+    virtual std::string GetJsonString() const;
+
 
     void SetOrigin(double x0, double y0);
     void SetRmin(double rmin);

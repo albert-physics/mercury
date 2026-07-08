@@ -209,6 +209,13 @@ void LRFxy::ToJsonObject(Json_object &json) const
 
 }
 
+std::string LRFxy::GetJsonString() const
+{
+    Json::object json;
+    ToJsonObject(json);
+    return Json(json).dump();
+}
+
 double LRFxy::GetRatio(LRF* other_base) const
 {
     LRFxy *other = dynamic_cast<LRFxy*>(other_base);

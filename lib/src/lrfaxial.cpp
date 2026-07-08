@@ -373,3 +373,10 @@ void LRFaxial::ToJsonObject(Json_object &json) const
     if (compress) 
         json["compression"] = compress->GetJsonObject();
 }
+
+std::string LRFaxial::GetJsonString() const
+{
+    Json::object json;
+    ToJsonObject(json);
+    return Json(json).dump();
+}
