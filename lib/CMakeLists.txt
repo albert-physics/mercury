@@ -8,6 +8,19 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 include(FetchContent)
 
+find_package(Eigen3)
+if(NOT Eigen3_FOUND)
+  message(STATUS "Eigen3 not found; using github version")
+  FetchContent_Declare(
+    Eigen3::Eigen
+    GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
+    GIT_TAG 3.4.0
+  )
+  FetchContent_MakeAvailable(Eigen3::Eigen)
+else()
+  message(STATUS "Using system Eigen3")
+endif()
+
 find_package(OpenMP)
 
 # find_package(ROOT COMPONENTS Minuit2)
