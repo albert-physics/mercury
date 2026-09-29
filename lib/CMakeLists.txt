@@ -8,7 +8,7 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 include(FetchContent)
 
-find_package(Eigen3)
+find_package(Eigen3 3.4.0)
 if(NOT Eigen3_FOUND)
   message(STATUS "Eigen3 not found; using github version")
   FetchContent_Declare(
