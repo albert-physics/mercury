@@ -10,14 +10,12 @@ include(FetchContent)
 
 find_package(OpenMP)
 
-# find_package(ROOT COMPONENTS Minuit2)
-if(NOT ROOT_Minuit2_FOUND)
+find_package(ROOT COMPONENTS Minuit2)
+if(NOT TARGET ROOT::Minuit2)
   message(STATUS "Minuit2 not found; using github version")
   FetchContent_Declare(
     Minuit2
     GIT_REPOSITORY https://github.com/GooFit/Minuit2
-#    GIT_TAG v6-37-01
-#    SOURCE_SUBDIR math/minuit2
   )
   FetchContent_MakeAvailable(Minuit2)
   target_compile_definitions(Minuit2Math PUBLIC MATHCORE_STANDALONE)
