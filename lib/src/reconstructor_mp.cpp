@@ -128,7 +128,7 @@ void ReconstructorMP::ProcessEvents (std::vector <std::vector <double> > &A, std
             rec_z[j] = recs[i]->getRecZ();
             rec_e[j] = recs[i]->getRecE();
             rec_min[j] = recs[i]->getRecMin();
-            rec_chi2min[j] = recs[i]->getChi2(rec_x[j], rec_y[j], 0., rec_e[j]);
+            rec_chi2min[j] = recs[i]->getChi2(rec_x[j], rec_y[j], rec_z[j], rec_e[j]);
             rec_dof[j] = recs[i]->getDof();
             cov_xx[j] = recs[i]->getCovXX();
             cov_yy[j] = recs[i]->getCovYY();
