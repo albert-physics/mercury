@@ -588,7 +588,7 @@ void LRModel::ClearGroupFitData(int gid)
 void LRModel::ClearAllFitData()
 {
     for (LRSensor s : Sensor)
-        if (s.group_id >= 0 && s.lrf)
+        if (s.group_id == -1 && s.lrf)
             s.lrf->clearData();
     for (LRGroup g : Group)
         if (g.glrf)
