@@ -1169,7 +1169,7 @@ void GainEstimator::Init(LRModel *lrm)
     size = lrm->GetSensorCount();
     M = new LRModel(size);
     for (int i=0; i<size; i++) {        
-        M->AddSensor(i, lrm->GetX(i), lrm->GetX(i));
+        M->AddSensor(i, lrm->GetX(i), lrm->GetY(i));
         Transform *tr = lrm->GetTransform(i);
         if (tr)
             M->SetTransform(i, tr->clone());
