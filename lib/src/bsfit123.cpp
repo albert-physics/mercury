@@ -182,7 +182,7 @@ void ConstrainedFit2D::ForceTopDown(double x0, double y0)
     int nbasx = bs->GetBSX().GetNbas();
     int nbasy = bs->GetBSY().GetNbas();;
     int nintx = bs->GetNintX();
-    int ninty = bs->GetNintX();
+    int ninty = bs->GetNintY();
 
     double xmin = bs->GetXmin();
     double xmax = bs->GetXmax();
