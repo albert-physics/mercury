@@ -107,7 +107,7 @@ bool LRFcomp::inDomain(double x, double y, double z) const
 // for now true is returned if any of the components responds true
 {
     for (size_t i=0; i<GetCount(); i++)
-        if (!GetLayer(i)->inDomain(x, y, z))
+        if (GetLayer(i)->inDomain(x, y, z))
             return true;
     return false;
 }

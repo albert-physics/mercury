@@ -15,7 +15,7 @@ include(FetchContent)
 
 
 FetchContent_Declare(
-  EMercury
+  Mercury
   GIT_REPOSITORY https://github.com/vovasolo/pymercury
   SOURCE_SUBDIR lib
 )

@@ -44,7 +44,7 @@ void Constraints::AddEquality(MatrixXd DE, VectorXd de0)
         MatrixXd TE = CE;
         VectorXd te0 = ce0;
         CE.resize(CE.rows(), CE.cols()+DE.cols());
-        ce0.resize(ce0.cols()+de0.cols());
+        ce0.resize(ce0.rows()+de0.rows());
         CE << TE, DE;
         ce0 << te0, de0;
     }
@@ -182,7 +182,7 @@ void ConstrainedFit2D::ForceTopDown(double x0, double y0)
     int nbasx = bs->GetBSX().GetNbas();
     int nbasy = bs->GetBSY().GetNbas();;
     int nintx = bs->GetNintX();
-    int ninty = bs->GetNintX();
+    int ninty = bs->GetNintY();
 
     double xmin = bs->GetXmin();
     double xmax = bs->GetXmax();

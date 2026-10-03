@@ -222,7 +222,7 @@ double LRFormula1::evalDrv(double r) const
         case Gauss:
             return -a*exp(-t*t/2)*t/s;
         case Sech:
-            return -a/tanh(t)/cosh(t)/s;
+            return -a*tanh(t)/cosh(t)/s;
         case Sech2:
             sch = 1/cosh(t);
             return -2*a*sch*sch*tanh(t)/s;

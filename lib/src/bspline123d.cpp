@@ -677,7 +677,7 @@ double BsplineBasis3d::BasisDrvX(double x, double y, double z, int n) const
 
 double BsplineBasis3d::BasisDrvY(double x, double y, double z, int n) const
 {
-    return bsxy.BasisDrvX(x, y, n%nbasxy)*bsz.Basis(z, n/nbasxy);
+    return bsxy.BasisDrvY(x, y, n%nbasxy)*bsz.Basis(z, n/nbasxy);
 }
 
 double BsplineBasis3d::BasisDrvZ(double x, double y, double z, int n) const
