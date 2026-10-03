@@ -44,7 +44,7 @@ void Constraints::AddEquality(MatrixXd DE, VectorXd de0)
         MatrixXd TE = CE;
         VectorXd te0 = ce0;
         CE.resize(CE.rows(), CE.cols()+DE.cols());
-        ce0.resize(ce0.cols()+de0.cols());
+        ce0.resize(ce0.rows()+de0.rows());
         CE << TE, DE;
         ce0 << te0, de0;
     }
