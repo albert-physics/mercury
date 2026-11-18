@@ -90,11 +90,13 @@ void Reconstructor::guessByCOG()
     guess_y = sum_y/sum_dn;
 }
 
+// Sums over enabled sensors only, so the energy guess ignores disabled ones on both sides
 double Reconstructor::getSumSignal()
 {
     double sum = 0.;
     for (int i=0; i<nsensors; i++)
-        sum += A[i];
+        if (sensor[i].on)
+            sum += A[i];
     return sum;
 }
 
@@ -102,7 +104,8 @@ double Reconstructor::getSumLRF(double x, double y, double z)
 {
     double sum = 0.;
     for (int i=0; i<nsensors; i++)
-        sum += lrm->Eval(i, x, y, z);
+        if (sensor[i].on)
+            sum += lrm->Eval(i, x, y, z);
     return sum;
 }
 
